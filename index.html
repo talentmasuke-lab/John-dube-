@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Dube FX38</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:white;font-family:Arial,sans-serif}
+header{padding:22px;background:#111a2d;color:#54e0ad;font-size:23px;font-weight:bold}
+main{max-width:650px;margin:35px auto;padding:20px}
+.tag{color:#54e0ad;font-weight:bold;letter-spacing:2px}
+h1{font-size:38px;line-height:1.15}
+p{color:#b7c1d4;line-height:1.7}
+.card{background:#151f34;border:1px solid #2c3b57;border-radius:15px;padding:22px;margin:22px 0}
+label{display:block;margin:14px 0 7px}
+input,select{width:100%;padding:13px;border-radius:8px;border:1px solid #40506b;background:#0b1020;color:white}
+button{width:100%;padding:14px;border:0;border-radius:9px;background:#54e0ad;color:#07140e;font-weight:bold;margin-top:16px}
+footer{text-align:center;padding:25px;color:#8592aa}
+</style>
+</head>
+<body>
+<header>JOHN DUBE FX38</header>
+<main>
+<p class="tag">YOUR TRADING FUNDING PLATFORM</p>
+<h1>Move money.<br>Trade with confidence.</h1>
+<p>Explore a planned broker deposit and withdrawal service designed with Zimbabwean customers in mind.</p>
+
+<section class="card">
+<h2>Start a deposit</h2>
+<label for="broker">Choose your broker</label>
+<select id="broker">
+<option>Deriv</option>
+<option>Weltrade</option>
+<option>Exness</option>
+<option>XM</option>
+<option>FBS</option>
+<option>Headway</option>
+</select>
+<label for="amount">Deposit amount (USD)</label>
+<input id="amount" type="number" min="1" placeholder="Enter amount, e.g. 10">
+<label for="payment">Payment method</label>
+<select id="payment">
+<option>EcoCash (demo)</option>
+<option>Omari (demo)</option>
+<option>Innbucks (demo)</option>
+</select>
+<button onclick="demoDeposit()">Preview deposit</button>
+<p id="message" aria-live="polite">Demo only. No payment will be made.</p>
+</section>
+
+<section class="card">
+<h2>Withdraw funds</h2>
+<p>Withdrawal requests will be supported after approved broker and payment integrations are connected.</p>
+<button onclick="alert('Demo only: withdrawals are not connected yet.')">Preview withdrawals</button>
+</section>
+
+<p><strong>Important:</strong> This is a demonstration website. No real deposits or withdrawals are processed. Never enter your payment PIN here.</p>
+</main>
+<footer>© 2026 John Dube FX38</footer>
+<script>
+function demoDeposit(){
+ const amount=Number(document.getElementById('amount').value);
+ const broker=document.getElementById('broker').value;
+ const payment=document.getElementById('payment').value;
+ const message=document.getElementById('message');
+ if(!Number.isFinite(amount)||amount<1){
+  message.textContent='Enter a valid demo amount of at least $1.';
+  return;
+ }
+ message.textContent='DEMO PREVIEW — Broker: '+broker+' | Amount: $'+amount.toFixed(2)+' | Method: '+payment+'. No money was taken and no broker was funded.';
+}
+</script>
+</body>
+</html>
